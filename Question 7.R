@@ -1,0 +1,10 @@
+set.seed(123)
+n <- 1000
+earth <- rnorm(n, mean = 10, sd = 2)
+fire <- rnorm(n, mean = 66, sd = 3)
+wind <- rnorm(n, mean = 200, sd = 1)
+water <- rnorm(n, mean = 440, sd = 5)
+heart <- 3 + 0.55*earth + 0.5*fire + 0.23*wind + 0.15*water + rnorm(n, mean = 0, sd = 5)
+dataset <- data.frame(earth, fire, wind, water, heart)
+model <- lm(heart ~ earth + fire + wind + water, data = dataset)
+summary(model)
